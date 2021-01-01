@@ -1,10 +1,10 @@
-#pragma once
-
-#include <string>
-#include "Globals.h"
-
 #ifndef __CMODULE_H__
 #define __CMODULE_H__
+#pragma once
+//----------
+#include "Globals.h"
+// ------------
+#include <string>
 
 class CModule
 {

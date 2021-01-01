@@ -4,9 +4,10 @@
 #define __APP_H__
 
 // ----------
-#include "Globals.h"
-#include "CModule.h"
+//#include "CModuleRenderer.h"
+#include "CModuleWindow.h"
 
+// ---------
 #include <list>
 #include <memory>
 // ---------
@@ -27,8 +28,10 @@ public:
 
 	void QuitApp();
 
+	CModuleWindow* mpModuleWindow;
+	//CModuleRenderer* mpModuleRenderer;
 private:
-	std::list<std::shared_ptr<CModule>> mModuleList;				// List containing every app module.
+	std::list<CModule*> mModuleList;			// List containing every app module.
 	bool mQuit;									// If true app closes.
 
 public:
@@ -37,4 +40,4 @@ public:
 
 extern App* eApp;
 
-#endif //WORLD_H_#pragma once
+#endif //APP_H

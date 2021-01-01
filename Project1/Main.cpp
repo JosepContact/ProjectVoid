@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <iostream>
 #include "App.h"
+#include "Globals.h"
 
 using namespace std;
 
-#define EXIT_SUCCESS 1
-#define EXIT_FAILURE 0
+#define M_EXIT_SUCCESS 1
+#define M_EXIT_FAILURE 0
 
-enum MainState {
+enum class MainState {
 	CREATE_STATE,
 	START_STATE,
 	UPDATE_STATE,
@@ -17,36 +18,36 @@ enum MainState {
 
 App* app = nullptr;
 
-int main(int argc, char ** argv)
+int WinMain(int argc, char ** argv)
 {
-	int ret = EXIT_FAILURE;
+	int ret = M_EXIT_FAILURE;
 
-	MainState state = CREATE_STATE;
+	MainState state = MainState::CREATE_STATE;
 
-	while (state != EXIT_STATE)
+	while (state != MainState::EXIT_STATE)
 	{
 		switch (state)
 		{
 
-		case CREATE_STATE:
+		case MainState::CREATE_STATE:
 			// ( ---------- World Creation -------------)
 			app = new App();
-			state = START_STATE;
+			state = MainState::START_STATE;
 
 			break;
 
-		case START_STATE:
+		case MainState::START_STATE:
 			// ( --------- World Starts -------------- )
 			if (app->Start() == false)
 			{
-				state == EXIT_STATE;
+				state = MainState::EXIT_STATE;
 			}
 			else
 			{
-				state = UPDATE_STATE;
+				state = MainState::UPDATE_STATE;
 			}
 			break;
-		case UPDATE_STATE:
+		case MainState::UPDATE_STATE:
 		{
 			// ( --------- World Updates -------------- )
 			int update_return = app->Update();
@@ -54,27 +55,27 @@ int main(int argc, char ** argv)
 			if (update_return == UPDATE_ERROR)
 			{
 				LOG("Application update exits with error.\n");
-				state == EXIT_STATE;
+				state = MainState::EXIT_STATE;
 			}
 			else if (update_return == UPDATE_STOP)
 			{
-				state = CLEAN_UP_STATE;
+				state = MainState::CLEAN_UP_STATE;
 			}
 
 			break;
 		}
-		case CLEAN_UP_STATE:
+		case MainState::CLEAN_UP_STATE:
 			// ( --------- World Finishes -------------- )
 			if (app->CleanUp() == false)
 			{
-				state == EXIT_STATE;
+				state = MainState::EXIT_STATE;
 			}
 			else
 			{
-				state = UPDATE_STATE;
+				state = MainState::UPDATE_STATE;
 			}
-			state = EXIT_STATE;
-			ret = EXIT_SUCCESS;
+			state = MainState::EXIT_STATE;
+			ret = M_EXIT_SUCCESS;
 			break;
 		}
 	}

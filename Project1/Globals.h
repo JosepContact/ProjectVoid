@@ -1,7 +1,7 @@
-#pragma once
-
 #ifndef __GLOBALS_H__
 #define __GLOBALS_H__
+
+#pragma once
 
 enum update_status
 {
@@ -25,4 +25,4 @@ typedef unsigned int uint;
 
 #define APP_NAME "ProjectVoid v0.0.01"
 
-#endif //GLOBALS_H#pragma once
+#endif //GLOBALS_H

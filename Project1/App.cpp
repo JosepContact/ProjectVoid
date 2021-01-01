@@ -7,21 +7,22 @@ App::App() :
 	mQuit(false)
 {
 	// ----- Create Modules ----
-	std::shared_ptr<CModuleWindow> ModuleWindow = std::make_shared<CModuleWindow>("ModuleWindow");
+	mpModuleWindow = new CModuleWindow("ModuleWindow");
+	//mpModuleRenderer = new CModuleRenderer("ModuleRenderer");
 	// ----- Add Modules to List ---
-	mModuleList.push_back(ModuleWindow);
+	mModuleList.push_back(mpModuleWindow);
+	//mModuleList.push_back(mpModuleRenderer);
 }
 
 
 App::~App()
 {
-	//for (std::list<Module*>::reverse_iterator rit = listmodules.rbegin(); rit != listmodules.rend(); ++rit)
-	//{
-	//	if ((*rit) != nullptr)
-	//		RELEASE(*rit);
-	//}
-
-	//listmodules.clear();
+	for (std::list<CModule*>::reverse_iterator rit = mModuleList.rbegin(); rit != mModuleList.rend(); ++rit)
+	{
+		if ((*rit) != nullptr)
+			RELEASE(*rit);
+	}
+	mModuleList.clear();
 }
 
 bool App::Start()
