@@ -129,10 +129,14 @@
   <ItemGroup>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="CModule.cpp" />
+    <ClCompile Include="CModuleWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
     <ClInclude Include="Globals.h" />
+    <ClInclude Include="CModule.h" />
+    <ClInclude Include="CModuleWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

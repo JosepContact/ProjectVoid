@@ -1,23 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Archivos de origen">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Archivos de encabezado">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Archivos de recursos">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="App">
       <UniqueIdentifier>{1a5d0a34-6c2a-4ace-8407-921387da71d8}</UniqueIdentifier>
     </Filter>
     <Filter Include="Tools">
       <UniqueIdentifier>{12199006-1ba1-4532-8d8a-96b1f5ce744d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules">
+      <UniqueIdentifier>{c5cc856a-8f60-4c8b-9f41-2c9ad4b8abee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Window">
+      <UniqueIdentifier>{f6e22b37-55cc-483f-b9d2-252dc64910c9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -27,6 +21,12 @@
     <ClCompile Include="App.cpp">
       <Filter>App</Filter>
     </ClCompile>
+    <ClCompile Include="CModuleWindow.cpp">
+      <Filter>Modules\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="CModule.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -34,6 +34,12 @@
     </ClInclude>
     <ClInclude Include="Globals.h">
       <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="CModuleWindow.h">
+      <Filter>Modules\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="CModule.h">
+      <Filter>Modules</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

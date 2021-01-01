@@ -1,13 +1,15 @@
 #include "App.h"
+#include "CModuleWindow.h"
 
 #include <windows.h>
 
-App::App()
+App::App() : 
+	mQuit(false)
 {
 	// ----- Create Modules ----
-
+	std::shared_ptr<CModuleWindow> ModuleWindow = std::make_shared<CModuleWindow>("ModuleWindow");
 	// ----- Add Modules to List ---
-
+	mModuleList.push_back(ModuleWindow);
 }
 
 
@@ -25,11 +27,10 @@ App::~App()
 bool App::Start()
 {
 	bool ret = true;
-	/*for (list<Module*>::iterator it = listmodules.begin(); it != listmodules.end(); ++it) {
-		if ((*it) != nullptr && ret == true) {
-			ret = (*it)->Start();
-		}
-	}*/
+	for (const auto& Module : mModuleList)
+	{
+		ret = Module->Start();
+	}
 	return ret;
 }
 
@@ -41,16 +42,14 @@ update_status App::Update()
 	}
 	update_status ret = UPDATE_CONTINUE;
 
-	/*list<Module*>::iterator it = listmodules.begin();
-
-	while (it != listmodules.end() && ret == UPDATE_CONTINUE)
+	for (const auto& Module : mModuleList)
 	{
-		if ((*it) != nullptr)
+		ret = Module->Update();
+		if (ret != UPDATE_CONTINUE)
 		{
-			ret = (*it)->Update();
+			break;
 		}
-		++it;
-	}*/
+	}
 
 	return ret;
 }
@@ -58,11 +57,10 @@ update_status App::Update()
 bool App::CleanUp()
 {
 	bool ret = true;
-	/*for (std::list<module*>::iterator it = listmodules.begin(); it != listmodules.end(); ++it) {
-		if ((*it) != nullptr && ret == true) {
-			ret = (*it)->cleanup();
-		}
-	}*/
+	for (const auto& Module : mModuleList)
+	{
+		ret = Module->CleanUp();
+	}
 	return ret;
 }
 
