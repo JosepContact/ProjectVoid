@@ -47,13 +47,21 @@ bool CModuleWindow::Start()
 
 bool CModuleWindow::CleanUp()
 {
+	//Destroy window surface.
+	SDL_FreeSurface(mpScreenSurface);
 	//Destroy window
 	SDL_DestroyWindow(mpWindow);
 
 	//Quit SDL subsystems
 	SDL_Quit();
-
 	return true;
+}
+
+update_status CModuleWindow::Update()
+{
+	SDL_UpdateWindowSurface(mpWindow);
+
+	return update_status::UPDATE_CONTINUE;
 }
 
 SDL_Window * CModuleWindow::GetWindow() const

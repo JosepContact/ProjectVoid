@@ -50,14 +50,14 @@ int WinMain(int argc, char ** argv)
 		case MainState::UPDATE_STATE:
 		{
 			// ( --------- World Updates -------------- )
-			int update_return = app->Update();
+			update_status update_return = app->Update();
 
-			if (update_return == UPDATE_ERROR)
+			if (update_return == update_status::UPDATE_ERROR)
 			{
 				LOG("Application update exits with error.\n");
 				state = MainState::EXIT_STATE;
 			}
-			else if (update_return == UPDATE_STOP)
+			else if (update_return == update_status::UPDATE_STOP)
 			{
 				state = MainState::CLEAN_UP_STATE;
 			}

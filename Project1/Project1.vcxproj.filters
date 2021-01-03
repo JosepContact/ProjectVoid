@@ -13,6 +13,9 @@
     <Filter Include="Modules\Window">
       <UniqueIdentifier>{f6e22b37-55cc-483f-b9d2-252dc64910c9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Modules\Render">
+      <UniqueIdentifier>{25ffce28-66bd-4bdd-8f07-d70a324c8c84}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -27,6 +30,9 @@
     <ClCompile Include="CModule.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
+    <ClCompile Include="CModuleRender.cpp">
+      <Filter>Modules\Render</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -40,6 +46,9 @@
     </ClInclude>
     <ClInclude Include="CModule.h">
       <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="CModuleRender.h">
+      <Filter>Modules\Render</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

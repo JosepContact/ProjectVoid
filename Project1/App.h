@@ -4,7 +4,7 @@
 #define __APP_H__
 
 // ----------
-//#include "CModuleRenderer.h"
+#include "CModuleRender.h"
 #include "CModuleWindow.h"
 
 // ---------
@@ -29,7 +29,7 @@ public:
 	void QuitApp();
 
 	CModuleWindow* mpModuleWindow;
-	//CModuleRenderer* mpModuleRenderer;
+	CModuleRender* mpModuleRender;
 private:
 	std::list<CModule*> mModuleList;			// List containing every app module.
 	bool mQuit;									// If true app closes.
@@ -38,6 +38,6 @@ public:
 	void mylog(const char file[], int line, const char* format, ...);
 };
 
-extern App* eApp;
+extern App* app;
 
 #endif //APP_H

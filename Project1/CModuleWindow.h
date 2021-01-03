@@ -22,6 +22,8 @@ public:
 	// Called before quitting.
 	bool CleanUp() override;
 
+	update_status Update() override;
+
 	SDL_Window* GetWindow() const;
 	SDL_Surface* GetScreenSurface() const;
 

@@ -23,7 +23,7 @@ bool CModule::CleanUp()
 
 update_status CModule::Update()
 {
-	return UPDATE_CONTINUE;
+	return update_status::UPDATE_CONTINUE;
 }
 
 const std::string CModule::GetModuleName() const

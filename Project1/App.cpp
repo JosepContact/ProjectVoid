@@ -8,10 +8,10 @@ App::App() :
 {
 	// ----- Create Modules ----
 	mpModuleWindow = new CModuleWindow("ModuleWindow");
-	//mpModuleRenderer = new CModuleRenderer("ModuleRenderer");
+	mpModuleRender = new CModuleRender("ModuleRender");
 	// ----- Add Modules to List ---
 	mModuleList.push_back(mpModuleWindow);
-	//mModuleList.push_back(mpModuleRenderer);
+	mModuleList.push_back(mpModuleRender);
 }
 
 
@@ -39,14 +39,14 @@ update_status App::Update()
 {
 	if (mQuit)
 	{
-		return UPDATE_STOP;
+		return update_status::UPDATE_STOP;
 	}
-	update_status ret = UPDATE_CONTINUE;
+	update_status ret = update_status::UPDATE_CONTINUE;
 
 	for (const auto& Module : mModuleList)
 	{
 		ret = Module->Update();
-		if (ret != UPDATE_CONTINUE)
+		if (ret != update_status::UPDATE_CONTINUE)
 		{
 			break;
 		}

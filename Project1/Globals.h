@@ -3,7 +3,7 @@
 
 #pragma once
 
-enum update_status
+enum class update_status
 {
 	UPDATE_CONTINUE = 1,
 	UPDATE_STOP,
