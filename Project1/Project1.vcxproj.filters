@@ -16,6 +16,12 @@
     <Filter Include="Modules\Render">
       <UniqueIdentifier>{25ffce28-66bd-4bdd-8f07-d70a324c8c84}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Modules\Input">
+      <UniqueIdentifier>{beb19c21-5408-4b98-be98-f2a3cc4ca1e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Player">
+      <UniqueIdentifier>{950933ea-c6f7-40b9-8b28-6936fccfddf1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -33,6 +39,12 @@
     <ClCompile Include="CModuleRender.cpp">
       <Filter>Modules\Render</Filter>
     </ClCompile>
+    <ClCompile Include="CModuleInput.cpp">
+      <Filter>Modules\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="CModulePlayer.cpp">
+      <Filter>Modules\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -49,6 +61,12 @@
     </ClInclude>
     <ClInclude Include="CModuleRender.h">
       <Filter>Modules\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="CModuleInput.h">
+      <Filter>Modules\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="CModulePlayer.h">
+      <Filter>Modules\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

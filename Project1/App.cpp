@@ -1,5 +1,4 @@
 #include "App.h"
-#include "CModuleWindow.h"
 
 #include <windows.h>
 
@@ -7,11 +6,15 @@ App::App() :
 	mQuit(false)
 {
 	// ----- Create Modules ----
-	mpModuleWindow = new CModuleWindow("ModuleWindow");
-	mpModuleRender = new CModuleRender("ModuleRender");
+	mpModuleWindow	= new CModuleWindow("ModuleWindow");
+	mpModuleRender	= new CModuleRender("ModuleRender");
+	mpModuleInput	= new CModuleInput("ModuleInput");
+	mpModulePlayer = new CModulePlayer("ModulePlayer");
 	// ----- Add Modules to List ---
 	mModuleList.push_back(mpModuleWindow);
 	mModuleList.push_back(mpModuleRender);
+	mModuleList.push_back(mpModuleInput);
+	mModuleList.push_back(mpModulePlayer);
 }
 
 

@@ -27,9 +27,13 @@ public:
 	SDL_Window* GetWindow() const;
 	SDL_Surface* GetScreenSurface() const;
 
+	void GetScreenDimensions(uint& width, uint& height) const;
+
 private:
 	SDL_Window* mpWindow;				//Pointer to game window.
 	SDL_Surface* mpScreenSurface;			//Pointer to screen surface.
+	uint mScreenWidth;
+	uint mScreenHeight;
 };
 
 #endif // __CModuleWindow_H__

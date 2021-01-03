@@ -1,8 +1,6 @@
-#pragma once
-
 #ifndef __CMODULERENDER_H__
 #define __CMODULERENDER_H__
-
+#pragma once
 //-----
 #include "CModule.h"
 
@@ -26,12 +24,17 @@ public:
 
 	update_status Update() override;
 
-	SDL_Surface* LoadSurface(std::string path);
+	SDL_Surface* LoadSurface(SDL_Surface* apSurface, const std::string& aPath);
+
+	void SetTexPosition(float x, float y);
+
+	void BlitTexture();
 
 private:
-	SDL_Renderer* mpRenderer;
-	SDL_Surface* mpTestImage;
-	SDL_Texture* mpTexture;
+	SDL_Renderer*	mpRenderer;
+	SDL_Surface*	mpTestImage;
+	SDL_Texture*	mpTexture;
+	SDL_Rect		mRect;
 };
 
 #endif // __CModuleRenderw_H__

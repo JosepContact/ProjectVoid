@@ -6,6 +6,8 @@
 // ----------
 #include "CModuleRender.h"
 #include "CModuleWindow.h"
+#include "CModuleInput.h"
+#include "CModulePlayer.h"
 
 // ---------
 #include <list>
@@ -30,6 +32,8 @@ public:
 
 	CModuleWindow* mpModuleWindow;
 	CModuleRender* mpModuleRender;
+	CModuleInput* mpModuleInput;
+	CModulePlayer* mpModulePlayer;
 private:
 	std::list<CModule*> mModuleList;			// List containing every app module.
 	bool mQuit;									// If true app closes.
