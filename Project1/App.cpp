@@ -6,15 +6,19 @@ App::App() :
 	mQuit(false)
 {
 	// ----- Create Modules ----
+	mpModuleFileSystem = new CModuleFileSystem("ModuleFileSystem");
 	mpModuleWindow	= new CModuleWindow("ModuleWindow");
 	mpModuleRender	= new CModuleRender("ModuleRender");
 	mpModuleInput	= new CModuleInput("ModuleInput");
 	mpModulePlayer = new CModulePlayer("ModulePlayer");
+	mpModuleResources = new CModuleResources("ModuleResources");
 	// ----- Add Modules to List ---
 	mModuleList.push_back(mpModuleWindow);
 	mModuleList.push_back(mpModuleRender);
 	mModuleList.push_back(mpModuleInput);
 	mModuleList.push_back(mpModulePlayer);
+	mModuleList.push_back(mpModuleFileSystem);
+	mModuleList.push_back(mpModuleResources);
 }
 
 

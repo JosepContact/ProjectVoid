@@ -3,7 +3,8 @@
 #pragma once
 //-----
 #include "CModule.h"
-
+// -----
+#include <vector>
 #include <SDL.h>
 //----
 
@@ -24,11 +25,13 @@ public:
 
 	update_status Update() override;
 
-	SDL_Surface* LoadSurface(SDL_Surface* apSurface, const std::string& aPath);
-
 	void SetTexPosition(float x, float y);
 
-	void BlitTexture();
+	SDL_Texture* LoadTexture(const std::string& aPath);
+
+	std::vector<SDL_Texture*> mRenderTextures;
+private:
+	SDL_Surface* LoadSurface(const std::string& aPath);
 
 private:
 	SDL_Renderer*	mpRenderer;

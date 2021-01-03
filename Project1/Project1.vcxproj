@@ -77,7 +77,7 @@
     <IncludePath>D:\UnrealProjects\ProjectVoid\tools\SDL\SDL2-2.0.14\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\UnrealProjects\ProjectVoid\tools\LibPng\include;D:\UnrealProjects\ProjectVoid\tools\SDL_Image\include;D:\UnrealProjects\ProjectVoid\tools\SDL\SDL2-2.0.14\include;D:\UnrealProjects\ProjectVoid\data;$(IncludePath)</IncludePath>
+    <IncludePath>D:\UnrealProjects\ProjectVoid\Project1;D:\UnrealProjects\ProjectVoid\tools\LibPng\include;D:\UnrealProjects\ProjectVoid\tools\SDL_Image\include;D:\UnrealProjects\ProjectVoid\tools\SDL\SDL2-2.0.14\include;D:\UnrealProjects\ProjectVoid\data;$(IncludePath)</IncludePath>
     <LibraryPath>D:\UnrealProjects\ProjectVoid\tools\LibPng\lib;D:\UnrealProjects\ProjectVoid\tools\SDL_Image\lib\x64;D:\UnrealProjects\ProjectVoid\tools\SDL\SDL2-2.0.14\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -97,6 +97,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;libpng.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -124,6 +125,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -132,21 +134,28 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
+    <ClCompile Include="CModuleFileSystem.cpp" />
     <ClCompile Include="CModuleInput.cpp" />
     <ClCompile Include="CModulePlayer.cpp" />
     <ClCompile Include="CModuleRender.cpp" />
+    <ClCompile Include="CModuleResources.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="CModule.cpp" />
     <ClCompile Include="CModuleWindow.cpp" />
+    <ClCompile Include="pugixml-1.10\src\pugixml.cpp" />
+    <ClCompile Include="CResource.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
+    <ClInclude Include="CModuleFileSystem.h" />
     <ClInclude Include="CModulePlayer.h" />
     <ClInclude Include="CModuleRender.h" />
+    <ClInclude Include="CModuleResources.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="CModule.h" />
     <ClInclude Include="CModuleWindow.h" />
     <ClInclude Include="CModuleInput.h" />
+    <ClInclude Include="CResource.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

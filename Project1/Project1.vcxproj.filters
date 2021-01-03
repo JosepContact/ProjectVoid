@@ -22,6 +22,15 @@
     <Filter Include="Modules\Player">
       <UniqueIdentifier>{950933ea-c6f7-40b9-8b28-6936fccfddf1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Modules\FileSystem">
+      <UniqueIdentifier>{ec5d7ea3-7c49-4b0c-9c10-b40dfb2af0e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\FileSystem\pugixml">
+      <UniqueIdentifier>{5bf90b47-716a-4f0a-a938-50e06bc07738}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Resources">
+      <UniqueIdentifier>{6df820f4-aee0-445b-afbd-de12af3b46cc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -45,6 +54,18 @@
     <ClCompile Include="CModulePlayer.cpp">
       <Filter>Modules\Player</Filter>
     </ClCompile>
+    <ClCompile Include="CModuleFileSystem.cpp">
+      <Filter>Modules\FileSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="pugixml-1.10\src\pugixml.cpp">
+      <Filter>Modules\FileSystem\pugixml</Filter>
+    </ClCompile>
+    <ClCompile Include="CModuleResources.cpp">
+      <Filter>Modules\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="CResource.cpp">
+      <Filter>Modules\Resources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -67,6 +88,15 @@
     </ClInclude>
     <ClInclude Include="CModulePlayer.h">
       <Filter>Modules\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="CModuleFileSystem.h">
+      <Filter>Modules\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="CModuleResources.h">
+      <Filter>Modules\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="CResource.h">
+      <Filter>Modules\Resources</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<Resources>
+  <Resource>
+    <Name value="Froakie"/>
+    <Path value="data/sprites/froakie.png"/>
+    <Width value="475"/>
+    <Height value="475"/>
+  </Resource>
+</Resources>

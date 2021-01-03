@@ -5,7 +5,7 @@
 #include "SDL_image.h"
 
 
-const std::string IMAGE_PATH = "../data/sprites/froakie.png";
+const std::string IMAGE_PATH = "data/sprites/froakie.png";
 
 CModuleRender::CModuleRender(const std::string& aModuleName, bool aEnabled) :
 	mpTestImage(nullptr),
@@ -36,35 +36,34 @@ bool CModuleRender::Start()
 	}
 
 	//Load splash image
-    mpTestImage = LoadSurface(mpTestImage, IMAGE_PATH);
-    mpTexture = SDL_CreateTextureFromSurface(mpRenderer, mpTestImage);
+    mpTexture = LoadTexture(IMAGE_PATH);
     mRect.w = 600;
     mRect.h = 600;
 	return ret;
 }
 
-SDL_Surface* CModuleRender::LoadSurface(SDL_Surface* apSurface, const std::string& aPath)
+SDL_Surface* CModuleRender::LoadSurface(const std::string& aPath)
 {
     //Load image at specified path
-    apSurface = IMG_Load(aPath.c_str());
+    SDL_Surface* Surface = IMG_Load(aPath.c_str());
 
     SDL_Surface* optimizedSurface = nullptr;
 
-    if (apSurface == nullptr)
+    if (Surface == nullptr)
     {
         LOG("Unable to load image %s! SDL_image Error: %s\n", aPath.c_str(), IMG_GetError());
     }
     else
     {
         //Convert surface to screen format
-        optimizedSurface = SDL_ConvertSurface(apSurface, app->mpModuleWindow->GetScreenSurface()->format, 0);
+        optimizedSurface = SDL_ConvertSurface(Surface, app->mpModuleWindow->GetScreenSurface()->format, 0);
         if (optimizedSurface == NULL)
         {
             LOG("Unable to optimize image %s! SDL Error: %s\n", aPath.c_str(), SDL_GetError());
         }
 
         //Get rid of old loaded surface
-        SDL_FreeSurface(apSurface);
+        SDL_FreeSurface(Surface);
     }
 
     return optimizedSurface;
@@ -74,6 +73,23 @@ void CModuleRender::SetTexPosition(float x, float y)
 {
     mRect.x = x;
     mRect.y = y;
+}
+
+SDL_Texture* CModuleRender::LoadTexture(const std::string& aPath)
+{
+    SDL_Surface* Surface = LoadSurface(aPath);
+    if (Surface == nullptr)
+    {
+        LOG("Error creating surface of path: %s. At SDL_Texture* CModuleRenderer::LoadTexture()", aPath.c_str());
+    }
+    SDL_Texture* ReturnTexture = SDL_CreateTextureFromSurface(mpRenderer, Surface);
+    if (ReturnTexture == nullptr)
+    {
+        LOG("Error creating texture of path: %s. At SDL_Texture* CModuleRenderer::LoadTexture()", aPath.c_str());
+    }
+    SDL_FreeSurface(Surface);
+
+    return ReturnTexture;
 }
 
 bool CModuleRender::CleanUp()
